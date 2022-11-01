@@ -1,0 +1,10 @@
+/* .carousel-container{
+    height: 300px;
+    width: 100%;
+
+} */
+.carousel-item{
+    object-fit: cover;
+    height:  500px;
+    width: 100%;
+}

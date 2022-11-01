@@ -1,0 +1,49 @@
+.footer-section{
+    background-color: white;
+    padding-top: 1%;
+    padding-bottom: 1%;
+
+}
+
+.footer-title{
+    text-align: center;
+    font-size: x-large;
+    font-weight: 150;
+}
+
+.footer-grid{
+    display: flex;
+    justify-content: space-around;
+    margin: 1.5% 20%;
+}
+
+.footer-grid-element-title{
+    font-size: large;
+    font-weight: 340;
+}
+
+.footer-grid-element-content{
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    font-weight: 100;
+}
+
+.footer-icon{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.footer-icon-row{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer-link:hover{
+    cursor: pointer;
+    color: red;
+    transition: 200ms ease-in;
+}

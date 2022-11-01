@@ -1,0 +1,55 @@
+@media (min-width: 0px) {
+    .navBarUtil {
+      display: none;
+    }
+  }
+  @media (min-width: 320px) {
+    .navBarUtil {
+      display: none;
+    }
+  }
+  @media (min-width: 500px) {
+    img {
+      height: 7.5rem;
+    }
+    .navBarUtil {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .burger-container {
+      display: none;
+    }
+    img {
+      height: 7.5rem;
+    }
+    .navBarUtil {
+      display: flex;
+    }
+  }
+  .user {
+    padding: 31%;
+    cursor: pointer;
+  }
+  .cart {
+    height: 50%;
+    margin-right: 4rem;
+    cursor: pointer;
+  }
+  
+  .burger-menu {
+    height: 60%;
+    display: flex;
+    margin-right: 4rem;
+  }
+  .hideCate{
+    top: 5rem;
+  }
+
+  .body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}

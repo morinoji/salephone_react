@@ -1,0 +1,7 @@
+.borderbot1{
+    border-bottom-width: 1px;
+}
+.forgot:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
