@@ -1,7 +1,10 @@
-import { Button, Divider, Rate } from 'antd';
+import { Button, Divider, Rate, Modal } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
+import axios from 'axios';
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { APIURL } from '../../../constants/Api';
 import { storeStar } from '../reducers/DetailReducers';
 import CommentList from './CommentList';
 import './css/edit_cmt.css'
@@ -9,17 +12,47 @@ import './css/edit_cmt.css'
 const EditComment = props => {
     // const rate=useRef();
     const dispatch=useDispatch();
+    const detail=useSelector(state=>state.detail.detail)
+    const navigate=useNavigate();
+    const success = () => {
+        Modal.success({
+          title: 'Đăng bình luận thành công!',
+        });
+      };
+      const error = () => {
+        Modal.error({
+          title: 'Đăng bình luận thất bại!',
+          
+        });
+      };
+    let star=0;
+
+    async function postComment(){
+        let cmt_content=document.getElementById("content").value;
+       
+        await axios.post(APIURL+"postComment",{
+            "comment_content":cmt_content,
+            "stars":star,
+            "product_id":detail.product_id,
+            "user_id":localStorage.getItem("id")
+        }).then((result) => {
+            success()
+            
+        }).catch((err) => {
+            error()
+        });
+    }
     return (
         <div className='editcmt-section'>
             <div className='editcmt-rating'>
-                <Rate className='editcmt-rating-star' onChange={(rate)=>dispatch(storeStar(rate))} defaultValue={5}/>
+                <Rate className='editcmt-rating-star' onChange={(rate)=>star=rate} defaultValue={5}/>
             </div>
             <div className='editcmt-editor'>
                 Đánh Giá: 
-                <TextArea className='editcmt-editor-textarea' rows={5}/>
+                <TextArea id='content' className='editcmt-editor-textarea' rows={5}/>
             </div>
             <div className='edicmt-btn-wrapper'>
-                <Button className='editcmt-btn'>Đăng bình luận</Button>
+                <Button hidden={localStorage.getItem("id")!=null? false:true} onClick={postComment} className='editcmt-btn'>Đăng bình luận</Button>
             </div>
             <Divider/>
             <CommentList/>
