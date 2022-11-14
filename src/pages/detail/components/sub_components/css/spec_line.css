@@ -1,0 +1,7 @@
+.spec-line{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 200;
+    font-size: medium;
+    padding: 10px 10px;
+}

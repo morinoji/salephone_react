@@ -1,0 +1,61 @@
+.genInfo-section{
+    padding: 20px;
+    height: max-content;
+    width: 55%;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+}
+
+.genInfo-title{
+    font-size: xx-large;
+    font-weight: 200;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.genInfo-price{
+    font-size: large;
+    color: crimson;
+    margin-bottom: 5px;
+}
+
+.genInfo-colors{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-content: flex-start;
+}
+
+.genInfo-colors-item{
+margin-right: 10px;
+margin-bottom: 5px;
+}
+
+.genInfo-colors-item:hover{
+    color: crimson;
+    border-color: crimson;
+    background: #fff;
+}
+
+.genInfo-colors-item:focus{
+    color: crimson;
+    border-color: crimson;
+    background: #fff;
+}
+
+.genInfo-presents-item{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.genInfo-presents-item-content{
+    margin-left: 10px;
+    overflow-wrap: break-word;
+}
+
+.genInfo-buttons{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30%;
+}

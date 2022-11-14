@@ -2,8 +2,8 @@ import { Card } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { APIURL } from '../../../constants/Api';
-import { useNavigate } from 'react-router-dom';
-import { PRODUCTIMG } from '../../../constants/Image';
+import { createSearchParams, useNavigate } from 'react-router-dom';
+import { PRODUCTIMG } from '../../../constants/ImageConstant';
 
 import './css/prod_list.css'
 import { v4 } from 'uuid';
@@ -12,7 +12,12 @@ const ProdList = props => {
     const [hotProduct, setHotProduct] = useState([]);
     const navigate=useNavigate();
     function navigation(slug){
-        navigate( `/product/${slug}`)
+        navigate({
+            pathname: "product",
+            search: createSearchParams({
+                prd: slug
+            }).toString()
+        })
     }
 
     async function getProduct(field){

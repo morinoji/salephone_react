@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'antd';
-import { PRODUCTIMG } from '../../../constants/Image';
+import { PRODUCTIMG } from '../../../constants/ImageConstant';
 import './css/prod_grid.css'
 import './css/prod_list.css'
 import axios from 'axios';

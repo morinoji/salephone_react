@@ -1,0 +1,47 @@
+.editcmt-section{
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    padding: 10px 40px;
+    margin-top: 24px;
+}
+
+.editcmt-editor{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 200;
+    font-size: large;
+}
+
+.editcmt-editor-textarea{
+   width: 75%;
+}
+
+.editcmt-rating{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.editcmt-rating-star{
+    font-size: 40px;
+}
+
+
+.editcmt-btn:hover{
+    color: crimson;
+    border-color: crimson;
+    background: #fff;
+}
+
+.editcmt-btn:focus{
+    color: crimson;
+    border-color: crimson;
+    background: #fff;
+}
+
+.edicmt-btn-wrapper{
+   display: flex;
+   justify-content: flex-end;
+    margin-top: 15px;
+    margin-bottom: 24px;
+}

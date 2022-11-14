@@ -1,8 +1,12 @@
+import { Badge } from 'antd';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { v4 } from 'uuid';
 import { APIURL } from '../constants/Api';
+import { AVATAR } from '../constants/ImageConstant';
+import { add2cart, getBadge } from '../pages/cart/reducers/CartReducer';
 
 import './css/header.css'
 
@@ -11,8 +15,23 @@ const Header = props => {
 
     const [category, setCategory] = useState([]);
     const [cateDisplay, setCateDisplay] = useState(true);
+    const [avatar, setAvatar] = useState("/icons/user.svg");
+    const badge=useSelector(state=>state.cart.cartCount)
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
+    let link=useRef("/sign-in");
 
     useEffect(()=>{
+      dispatch(getBadge());
+      if (new Date().getTime() < localStorage.getItem("expiredDate")) {
+        if (localStorage.getItem("avatar") != "null") {
+          setAvatar(AVATAR + localStorage.getItem("avatar"));
+        } else {
+          setAvatar("/icons/user.svg")
+        }
+    
+        link.current = "/profile";
+      }
       axios.get(APIURL+"findAllCategories").then((result) => {
         setCategory(result.data.data)
       }).catch((err) => {
@@ -21,7 +40,7 @@ const Header = props => {
     },[])
     
     return (
-        <div className="h-20 w-screen m-0 p-0 flex shadow justify-between bg-white">
+        <div className="h-24 w-screen m-0 p-0 flex shadow justify-between bg-white header-container">
         <div className="h-full w-10/12 sm:w-10/12 md:w-4/12 lg:w-2/12">
           <img
             src="/icons/SALEPHONE1.png"
@@ -92,16 +111,17 @@ const Header = props => {
                 placeholder="Search..."
               />
             </div>
-            <Link to="/sign-in" >
-           <div className="user">
+
+           
            <img
-             src="/icons/user.svg"
+            className="user"
+            onClick={()=>navigate(link.current)}
+             src={avatar}
               alt="user"
-              
             />
-           </div>
-            </Link>
-            <img src="/icons/cart.svg" alt="user" className="cart" />
+           
+
+            <Badge count={badge}><img src="/icons/cart.svg" onClick={()=>navigate("/cart")} alt="user" className="cart" /></Badge> 
           </div>
         </div>
       </div>

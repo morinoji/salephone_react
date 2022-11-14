@@ -1,0 +1,144 @@
+
+.checkout{
+    display: flex;
+}
+
+.checkout-products{
+    background-color: white;
+    width: 70%;
+    padding: 40px 60px;
+}
+
+.checkout-products-header{
+    font-size: x-large;
+    font-weight: 200;
+   
+}
+
+.checkout-products-tableHead{
+    width: 100%;
+    font-size: medium;
+    font-weight: 100;
+    display: flex;
+}
+
+.checkout-products-line{
+    margin-bottom: 24px;
+    display: flex;
+}
+
+.checkout-products-line-product{
+    display: flex;
+    width: 40%;
+    align-items: center;
+    overflow: hidden;
+}
+
+.checkout-image{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.checkout-product-title{
+    font-weight: 300;
+    font-size: 17px;
+}
+
+.checkout-product-brand{
+    color: crimson;
+    font-size: 14px;
+}
+
+.checkout-product-remove{
+    color: #a5a5a5;
+}
+
+.checkout-product-line-quantity{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.checkout-product-line-price{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-size: large;
+    font-weight: 200;
+}
+
+.checkout-product-line-sum{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-size: large;
+    font-weight: 200;
+}
+
+.inputNumber{
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+}
+
+.inputNumber:focus{
+    border: none;
+}
+
+.checkout-summary{
+    width: 30%;
+    padding: 40px 20px;
+}
+
+.checkout-summary-header{
+    font-size: x-large;
+    font-weight: 200;
+}
+
+.checkout-summary-address{
+   font-size: large;
+   font-weight: 300;
+   margin-bottom: 20px;
+}
+
+.checkout-summary-address-input{
+    width: 70%;
+}
+
+.checkout-summary-total{
+    font-size: large;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checkout-summary-address-input{
+    background-color: #f6f6f6;
+}
+
+.checkout-summary-allTotal{
+    font-size: large;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checkout-btn-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-btn{
+    background-color: blueviolet;
+    width: 50%;
+}

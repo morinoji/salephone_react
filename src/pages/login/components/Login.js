@@ -50,7 +50,16 @@ const Login = props => {
         params.append('email', email);
         params.append('password', password);
         await axios.post(APIURL+"login",params).then((result) => {
-            console.log(result);
+          // let current = new Date();
+          // let currentInN = current.getTime() + parseInt(result.data.data.expiredDate);
+
+          // localStorage.setItem("token", result.data.data.token);
+
+          // localStorage.setItem("expiredDate", currentInN);
+          localStorage.setItem("id",result.data.data.id)
+          localStorage.setItem("avatar", result.data.data.avatar);
+          console.log(result.data)
+          navigate("/")
         }).catch((err) => {
             setError(err.response.data.message)
         });

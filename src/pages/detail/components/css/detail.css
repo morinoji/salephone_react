@@ -1,0 +1,16 @@
+.detail-page-frontline{
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-page-midline{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.detail-page{
+    background-color: white;
+    padding: 7% 10% 4% 10%;
+}
+

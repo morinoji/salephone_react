@@ -1,0 +1,19 @@
+.rating-section{
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    padding: 10px 20px;
+    display: flex;
+    margin-top: 24px;
+}
+
+.rating-mainRate{
+    display: flex;
+    font-size: 50px;
+    font-weight: 200;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.rating-detailRate{
+    display: block;
+}

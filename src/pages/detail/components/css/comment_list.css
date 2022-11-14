@@ -1,0 +1,41 @@
+.commentList-commentLine-name{
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.commentList-first{
+    display: flex;
+}
+
+.commentList-commentLine-star{
+    font-size: 15px;
+}
+
+.commentList-avatar{
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 2px;
+    
+}
+
+.commentList-avatar-wrapper{
+    margin-right: 14px;
+}
+
+.commentList-commentLine-content{
+    font-size: 15px;
+    font-weight: 200;
+    padding: 0 12px;
+    margin-top: 10px;
+}
+
+.commentList-commentLine{
+    padding: 10px 20px 0 20px;
+}
+
+.commentList-time{
+    font-size: 13px;
+    font-style: italic;
+    color: #e0e0e0;
+}
