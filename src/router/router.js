@@ -6,6 +6,8 @@ import Reset_password_view from '../pages/login/Reset_password_view';
 import Home from '../pages/home/Home'
 import Detail from '../pages/detail/Detail';
 import Cart from '../pages/cart/Cart';
+import Search from '../pages/search/Search';
+import Profile from '../pages/profile/Profile';
 
 const Router = props => {
     return (
@@ -17,6 +19,11 @@ const Router = props => {
     <Route path="/reset" element={<Reset_password_view/>}></Route>
     <Route path="/product" element={<Detail/>}></Route>
     <Route path="/cart" element={<Cart/>}></Route>
+    <Route path="/search" element={<Search/>}></Route>
+    <Route path="/search/product" element={<Detail/>}></Route>
+    <Route path="/category" element={<Search/>}></Route>
+    <Route path="/category/product" element={<Detail/>}></Route>
+    <Route path="/profile" element={<Profile/>}></Route>
     {/* {
       routes.forEach((element)=> {
         element.forEach(subElement => {

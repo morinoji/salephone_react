@@ -6,11 +6,20 @@ import './css/prod_list.css'
 import axios from 'axios';
 import { APIURL } from '../../../constants/Api';
 import { v4 } from 'uuid';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
 
 const ProductGrid = props => {
     const [allProd, setAllProd] = useState([]);
-
+    function navigation(slug){
+        navigate({
+            pathname: "product",
+            search: createSearchParams({
+                prd: slug
+            }).toString()
+        })
+    }
+    const navigate=useNavigate()
     async function fetchData(limit, offset){
         await axios.get(APIURL+"listing-all-product",{params:{
             limit:limit,
@@ -35,6 +44,7 @@ const ProductGrid = props => {
                        return <Card hoverable 
                        key={v4()}
                        className="cardStyle"
+                       onClick={()=>navigation(element.slug)}
                        cover={<div className='coverStyle'><img className='imageStyle' src={PRODUCTIMG+ element.thumbnail} alt="error"/></div>}
                    >
                        <div className='title'>{element.title}</div>

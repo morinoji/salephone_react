@@ -68,7 +68,7 @@ const ImageGallery = props => {
                     images.map((element,index)=>{
                         return <div key={v4()} id={index} className='gallery-navigate-item' >
                             <div className='inner'>
-                            <img className='gallery-navigate-image' src={PRODUCTIMGDETAIL+element} alt="err" onClick={asyncImageNavigate}/>
+                                <img className='gallery-navigate-image' src={PRODUCTIMGDETAIL+element} alt="err" onClick={asyncImageNavigate}/>
                             </div>
                         </div>
                     })

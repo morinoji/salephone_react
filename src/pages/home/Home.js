@@ -6,6 +6,7 @@ import ProdList from './components/ProdList';
 import ProductGrid from './components/ProductGrid';
 
 const home = props => {
+    
     return (
         <div className='body'>
             <Header/>

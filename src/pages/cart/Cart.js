@@ -2,7 +2,7 @@ import { Button, Divider, Input, Spin, Modal} from 'antd';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PRODUCTIMG } from '../../constants/ImageConstant';
-import { deleteAllCart, getCart } from './reducers/CartReducer';
+import { deleteAllCart, getCart, removeCart, updateCart } from './reducers/CartReducer';
 import './css/cart.css'
 import { v4 } from 'uuid';
 import TextArea from 'antd/lib/input/TextArea';
@@ -43,18 +43,36 @@ const Cart = props => {
         }
         let quantity=e.currentTarget.value;
         let sum=0;
+        let totalSum=0;
+        let finalSum=0;
         let price=e.currentTarget.parentNode.parentNode.querySelector(".checkout-product-line-price").innerHTML;
         let total= document.getElementById("total");
         let allTotal=document.getElementById("allTotal");
         let index=e.currentTarget.id;
-        items[index].quantity+=1;
-        console.log(items)
+        
+       
        
         price=price.replaceAll(".","").replaceAll("VND","").trim()
+        totalSum=allTotal.innerHTML.replaceAll(".","").replaceAll("VND","").trim()
+
         sum=price*quantity;
+
+        if(quantity > items[index].quantity){
+            finalSum=parseInt(totalSum) + parseInt(price);
+            items[index].quantity+=1;
+        }else{
+            
+            if(items[index].quantity>1){
+                finalSum=parseInt(totalSum) - parseInt(price);
+                items[index].quantity-=1;
+            }
+           
+        }
+
         e.currentTarget.parentNode.parentNode.querySelector(".checkout-product-line-sum").innerHTML=sum.toLocaleString()+" VND"
-        total.innerHTML=sum.toLocaleString()+" VND";
-        allTotal.innerHTML=sum.toLocaleString()+" VND";
+        total.innerHTML=finalSum.toLocaleString()+" VND";
+        allTotal.innerHTML=finalSum.toLocaleString()+" VND";
+        dispatch(updateCart({"index":index, "quantity":quantity}));
     }
 
     async function postOrder(){
@@ -117,7 +135,7 @@ const Cart = props => {
                                         <div className='checkout-product-brand'>
                                            {element.brand}
                                         </div>
-                                        <div className='checkout-product-remove'>
+                                        <div className='checkout-product-remove' onClick={()=>dispatch(removeCart(element.id))}>
                                             Remove
                                         </div>
                                     </div>

@@ -12,6 +12,7 @@ const GeneralIn4 = props => {
     const presents=useSelector(state=>state.detail.presents)
     const dispatch=useDispatch();
     let justPassed="";
+    
     function clickedButton(e){
         e.currentTarget.style.color="crimson";
         e.currentTarget.style.backgroundColor="white";

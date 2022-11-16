@@ -25,11 +25,11 @@ const EditComment = props => {
           
         });
       };
-    let star=0;
+    let star=0.0;
 
     async function postComment(){
         let cmt_content=document.getElementById("content").value;
-       
+        console.log(star)
         await axios.post(APIURL+"postComment",{
             "comment_content":cmt_content,
             "stars":star,
@@ -37,7 +37,7 @@ const EditComment = props => {
             "user_id":localStorage.getItem("id")
         }).then((result) => {
             success()
-            
+            window.location.reload();
         }).catch((err) => {
             error()
         });
@@ -45,7 +45,7 @@ const EditComment = props => {
     return (
         <div className='editcmt-section'>
             <div className='editcmt-rating'>
-                <Rate className='editcmt-rating-star' onChange={(rate)=>star=rate} defaultValue={5}/>
+                <Rate className='editcmt-rating-star'   onChange={(rate)=>star=rate} defaultValue={5}/>
             </div>
             <div className='editcmt-editor'>
                 Đánh Giá: 

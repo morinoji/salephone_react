@@ -4,7 +4,7 @@ import './css/carousel.css'
 import { APIURL } from '../../../constants/Api';
 import { Carousel, Icon } from 'antd';
 import { BANNERIMG } from '../../../constants/ImageConstant';
-import {RightCircleOutlined} from '@ant-design/icons'
+
 
 
 const CarouselComp = props => {

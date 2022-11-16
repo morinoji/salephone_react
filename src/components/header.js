@@ -7,6 +7,7 @@ import { v4 } from 'uuid';
 import { APIURL } from '../constants/Api';
 import { AVATAR } from '../constants/ImageConstant';
 import { add2cart, getBadge } from '../pages/cart/reducers/CartReducer';
+import { storeCategoryName, storeCateId, storeItems, storeSearchText } from '../pages/search/reducers/SearchReducer';
 
 import './css/header.css'
 
@@ -21,17 +22,56 @@ const Header = props => {
     const navigate=useNavigate();
     let link=useRef("/sign-in");
 
+
+    async function search(key){
+      if(key.key=="Enter"){
+        let searchText=document.getElementsByClassName("searchBox")[0].value;
+        navigate("/search")
+        
+       
+          await axios.get(APIURL+"search",{
+            params:{
+              searchText: searchText
+            }
+          }).then((result) => {
+
+            dispatch(storeItems(result.data.data))
+          }).catch((err) => {
+            dispatch(storeItems([]));
+          });
+        
+      }
+    }
+
+    async function categoryClick(cateId, cateName){
+      navigate("/category")
+      
+        dispatch(storeCategoryName(cateName))
+          await axios.get(APIURL+"getProdsByCate",{
+              params:{
+                  category_id:cateId
+              }
+          }).then((result) => {
+              dispatch(storeItems(result.data.data));
+          }).catch((err) => {
+            dispatch(storeItems([]));
+          });
+      
+      }
+    
+
     useEffect(()=>{
       dispatch(getBadge());
-      if (new Date().getTime() < localStorage.getItem("expiredDate")) {
-        if (localStorage.getItem("avatar") != "null") {
+        if (localStorage.getItem("avatar") != null) {
           setAvatar(AVATAR + localStorage.getItem("avatar"));
+          link.current = "/profile";
         } else {
           setAvatar("/icons/user.svg")
+          link.current = "/sign-in";
         }
     
-        link.current = "/profile";
-      }
+       
+      
       axios.get(APIURL+"findAllCategories").then((result) => {
         setCategory(result.data.data)
       }).catch((err) => {
@@ -42,12 +82,13 @@ const Header = props => {
     return (
         <div className="h-24 w-screen m-0 p-0 flex shadow justify-between bg-white header-container">
         <div className="h-full w-10/12 sm:w-10/12 md:w-4/12 lg:w-2/12">
+          <Link to={"/"}>
           <img
             src="/icons/SALEPHONE1.png"
             alt=""
             className="h-20  z-50 m-auto"
             
-          />
+          /></Link>
         </div>
         <div className="burger-container flex justify-center items-center">
           <img
@@ -80,7 +121,7 @@ const Header = props => {
         <div className="flex justify-between flex-1 navBarUtil">
           <div
            onMouseEnter={()=>setCateDisplay(false)} onMouseLeave={()=>setCateDisplay(true)}
-            className="h-full flex justify-center items-center"
+            className="h-full flex justify-between items-center"
           >
             <span className="text-black text-xl font-thin hover: cursor-pointer" >Danh mục</span>
             <div
@@ -90,24 +131,25 @@ const Header = props => {
               >
                {
               category.map((element)=>{
-                return  <Link key={v4() } to="">
-                <div >
+                return  <div className='category_line' onClick={()=>categoryClick(element.categoryId, element.categoryName)}>
                 <span className='text-black font-thin text-base '> {
                element.categoryName
               }</span>
                 </div>
-              </Link>
+              
               })
             }
               </div>
            
           </div>
     
-          <div className="flex justify-center items-center">
+          <div className="flex justify-end items-center mr-40">
             <div>
               <input
                 type="text"
-                className="border-b-1 border-black p-2 outline-none"
+                
+                onKeyDown={(key)=>search(key)}
+                className="border-b-1 border-black p-2 outline-none searchBox"
                 placeholder="Search..."
               />
             </div>

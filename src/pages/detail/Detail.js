@@ -31,7 +31,7 @@ const Detail = props => {
            dispatch(storeInnerDetail(result.data.data.detail))
            product_id=result.data.data.product_id
         }).catch((err) => {
-            console.log(err);
+           
         });
         
         await axios.get(APIURL+"getCmtByProd",{
@@ -44,11 +44,13 @@ const Detail = props => {
         }).then((result) => {
             dispatch(storeComment(result.data.data))
         }).catch((err) => {
-            console.log(err)
+            
+            dispatch(storeComment([]))
         });
       
     }
     useEffect(()=>{
+        window.scrollTo(0, 0);
         fetchData();
     },[])
     return (

@@ -1,0 +1,62 @@
+.profile-in4-section{
+    background-color: white;
+    padding: 40px 60px;
+}
+
+.profile-in4-content-wrapper{
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile-in4-title{
+    font-size: x-large;
+    font-weight: 200;
+}
+
+.profile-in4-information{
+    width: 50%;
+}
+
+.profile-in4-content-wrapper{
+    display: flex;
+}
+
+.profile-in4-avatar{
+    height: 150px;
+    width: 150px;
+    border-radius: 2px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.input-in4{
+    height: 30px;
+    background-color: white;
+}
+
+
+
+.profile-btn{
+    float: right;
+    margin-top: 24px;
+    display: flex;
+}
+
+.change-password{
+    margin: 0 15px;
+}
+
+.dumb-btn{
+    visibility: hidden;
+}
+
+.preview-avatar{
+    height: 45%;
+    width: 45%;
+    border-radius: 2px;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}

@@ -10,7 +10,7 @@ const Rating = props => {
     return (
         <div className='rating-section'>
             <div className='rating-mainRate'>
-                    {detail.rating}
+                    {detail.rated==0? 0:(detail.rating / detail.rated)}
                     <StarFilled style={{color:"yellow"}}/>
             </div>
             <Divider type='vertical' style={{height:"150px"}}/>
