@@ -20,10 +20,14 @@
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+    align-items: center;
+    font-size: medium;
+    font-weight: 200;
 }
 
 .editcmt-rating-star{
     font-size: 40px;
+    margin-left: 24px;
 }
 
 

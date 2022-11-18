@@ -41,9 +41,6 @@ const OngoingOrder = props => {
                                                 <div className='checkout-product-brand'>
                                                    {prodElement.brand}
                                                 </div>
-                                                <div className='checkout-product-remove'>
-                                                    Remove
-                                                </div>
                                             </div>
                                    
                                         </div>

@@ -25,9 +25,9 @@ const Detail = props => {
             prd:searchParams.get("prd")
         }}).then((result) => {
            dispatch(storeImageList(result.data.data.imageList));
-           dispatch(storecolors(result.data.data.colors))
+           dispatch(storecolors(result.data.data.colorList))
            dispatch(storeDetail(result.data.data))
-           dispatch(storePresents(result.data.data.presents))
+           dispatch(storePresents(result.data.data.presentList))
            dispatch(storeInnerDetail(result.data.data.detail))
            product_id=result.data.data.product_id
         }).catch((err) => {

@@ -45,7 +45,7 @@ const EditComment = props => {
     return (
         <div className='editcmt-section'>
             <div className='editcmt-rating'>
-                <Rate className='editcmt-rating-star'   onChange={(rate)=>star=rate} defaultValue={5}/>
+            Bạn cảm thấy sản phẩm này như thế nào? (chọn sao nhé) <Rate className='editcmt-rating-star'   onChange={(rate)=>star=rate} defaultValue={5}/>
             </div>
             <div className='editcmt-editor'>
                 Đánh Giá: 

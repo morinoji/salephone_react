@@ -123,7 +123,7 @@ const Cart = props => {
                 
                     {
                         cart==null? null:cart.map((element,index)=>{
-                            itemCount+=element.quantity
+                            itemCount+=1
                             total+=element.price * element.quantity;
                             return <div key={v4()} className='checkout-products-line'>
                                 <div className='checkout-products-line-product'>
@@ -191,7 +191,7 @@ const Cart = props => {
                 </div>
                 <div className='checkout-btn-wrapper'>
                 <Spin hidden id="spin" indicator={antIcon} style={{marginRight:"10px"}}/>
-                <Button onClick={postOrder} className='checkout-btn' type='primary'>Check Out</Button>
+                <Button hidden={localStorage.getItem("id")!=null? false:true} onClick={postOrder} className='checkout-btn' type='primary'>Check Out</Button>
                 </div>
             </div>
         </div>
