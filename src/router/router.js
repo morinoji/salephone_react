@@ -8,6 +8,7 @@ import Detail from '../pages/detail/Detail';
 import Cart from '../pages/cart/Cart';
 import Search from '../pages/search/Search';
 import Profile from '../pages/profile/Profile';
+import NewProfile from '../pages/newProfile/newProfile';
 
 const Router = props => {
     return (
@@ -23,7 +24,7 @@ const Router = props => {
     <Route path="/search/product" element={<Detail/>}></Route>
     <Route path="/category" element={<Search/>}></Route>
     <Route path="/category/product" element={<Detail/>}></Route>
-    <Route path="/profile" element={<Profile/>}></Route>
+    <Route path="/profile" element={<NewProfile/>}></Route>
     {/* {
       routes.forEach((element)=> {
         element.forEach(subElement => {
